@@ -2,6 +2,16 @@ console.log("Завдання: 2 ==============================");
 
 // Створюємо функцію task2
 function task2() {
+  const promise1 = new Promise((resolve) => {
+    setTimeout(resolve("Проміс 1 виконано", 2000));
+  });
+  const promise2 = new Promise(() =>
+    setTimeout(resolve("Проміс 2 виконано", 5000))
+  );
+
+  Promise.race([promise1, promise2]).then((value) => {
+    console.log(value);
+  });
   // Створюємо функцію promise1
   // Повертаємо новий проміс
   // Використовуємо setTimeout для імітації асинхронної операції, яка завершується через 2 секунди.
