@@ -1,22 +1,21 @@
 console.log("Завдання: 9 ==============================");
 
 function task9() {
-  function fetchWithError(errorMessage) {
-    return new Promise();
-    // console.error(errorMessage);
+  function fetchWithError() {
+    const errorMessage = "Помилка при з'єднанні з сервером";
+    return Promise.reject(new Error(errorMessage));
   }
-  const errorMessage = "Помилка при з'єднанні з сервером";
-  Promise.reject(errorMessage).then(() => {
-    console.log(fetchWithError);
-  });
-
-  // Створюємо функцію fetchWithError, яка симулює помилку при запиті до сервера.
-  // Створюємо константу errorMessage в яку записуємо рядок "Помилка при з'єднанні з сервером"
-  // Використовуємо Promise.reject(errorMessage) для створення вже відхиленого промісу.
-  // Викликаємо функцію fetchWithError
-  // Якщо проміс виконаний успішно виводимо в консоль дані які він повертає
-  // Якщо проміс виконаний з помилкою виводимо в консоль помилку
+  fetchWithError()
+    .then((data) => console.log(data))
+    .catch((error) => console.log(error));
 }
+
+// Створюємо функцію fetchWithError, яка симулює помилку при запиті до сервера.
+// Створюємо константу errorMessage в яку записуємо рядок "Помилка при з'єднанні з сервером"
+// Використовуємо Promise.reject(errorMessage) для створення вже відхиленого промісу.
+// Викликаємо функцію fetchWithError
+// Якщо проміс виконаний успішно виводимо в консоль дані які він повертає
+// Якщо проміс виконаний з помилкою виводимо в консоль помилку
 
 // Викликаємо функцію task10
 task9();
